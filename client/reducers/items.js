@@ -1,3 +1,4 @@
+
 export function userItems(state = [], action) {
     console.log('inside reducer');
     console.log(state);
@@ -74,3 +75,25 @@ export function setView(state=1,action){
     }
 }
 
+export function cardDetails(state=[],action){
+    
+    switch(action.type){
+        case 'RESULT_DATA':
+        {
+            return action.data;
+        }
+        case 'DELETE_DATA':
+            return [];
+        default:
+            return state;    
+    }
+}
+
+export function cardOpened(state={},action){
+    switch(action.type){
+        case 'CURRENT_CARD':
+            return action.card;
+        default:
+            return state;
+    }
+}

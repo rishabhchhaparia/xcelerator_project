@@ -16,7 +16,7 @@ app.use(function (req, res, next) {
 
 
 
-var file = './data/index.json';
+var file = './index.json';
 var data;
 data = jsonfile.readFileSync(file);
 

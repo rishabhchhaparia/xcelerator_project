@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export function itemsHasErrored(bool) {
     return {
         type: 'ITEMS_HAS_ERRORED',
@@ -19,6 +21,23 @@ export function itemsFetchDataSuccess(items) {
     };
 }
 
+export function getCards(url){
+    return (dispatch) => {
+             return axios({
+			url: url,
+			timeout: 20000,
+			method: 'get',
+			responseType: 'json'
+		})
+			.then(function(response) {
+                dispatch(itemsIsLoading(false));
+				dispatch(itemsFetchDataSuccess(response.data));
+			})
+			.catch(function(response){
+				dispatch(itemsHasErrored(response.data));
+        })
+      }
+}
 export function userFetchDataSuccess(users) {
     //console.log(items);
     return {
@@ -26,9 +45,7 @@ export function userFetchDataSuccess(users) {
         users
     };
 }
-var Bookmarks = [];
-var Likes = [];
-var Dislikes = [];
+
 
 export function getUsers(url) {
     return (dispatch) => {
@@ -40,7 +57,9 @@ export function getUsers(url) {
             .catch(() => dispatch(itemsHasErrored(true)));
     }
 }
-
+var Bookmarks = [];
+var Likes = [];
+var Dislikes = [];
 export function addBookmarks(index, users, Bookmarks) {
     var flag = true, f = true;
     return (dispatch) => {
@@ -141,5 +160,12 @@ export function changeView(view) {
     return {
         type: 'CHANGE_VIEW',
         view
+    }
+}
+
+export function currentCard(card){
+    return{
+        type:'CURRENT_CARD',
+        card
     }
 }

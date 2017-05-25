@@ -1,13 +1,12 @@
 import React from 'react';
-import { Router, Route, IndexRoute, hashHistory } from "react-router";
 import { render } from 'react-dom';
-import css from './styles/style.styl';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
-import App from './components/itemList';
+import App from './components/ItemList';
+import { Router, Route, IndexRoute, hashHistory } from "react-router";
 import Main from './components/Main.component';
 import Cards from './components/cardList/cards';
-import CardDetails from './components/cardDetails/Details';
+import CardDescription from './components/cardDescription/description';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin()
@@ -18,7 +17,7 @@ render(
       <Router history={hashHistory}>
         <Route path={`/`} component={ App }>
           <IndexRoute component={ Cards } />
-          <Route path="details/:id" component={CardDetails}></Route>
+          <Route path="details/:id" component={CardDescription}></Route>
         </Route>
       </Router>
     </Provider>,

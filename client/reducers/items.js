@@ -1,84 +1,10 @@
 
-export function userItems(state = [], action) {
-    console.log('inside reducer');
-    console.log(state);
-    console.log(action);
-    switch (action.type) {
-        case 'USERS_FETCH_DATA_SUCCESS':
-            return action.users;
 
-        default:
-            return state;
-    }
-}
-export function LikePosts(state = [], action) {
-        console.log("likes ",state);
 
-    console.log('inside reducer');
-    console.log(action);
-    switch (action.type) {
-        case 'DISPLAY_LIKES':
-            return action.like;
-
-        default:
-            return state;
-    }
-}
-export function DislikePosts(state = [], action) {
-        console.log("Dislikes ",state);
-
-    console.log('inside reducer');
-    console.log(action);
-    switch (action.type) {
-        case 'DISPLAY_DISLIKES':
-            return action.Dislike;
-        default:
-            return state;
-    }
-}
-export  function userLikes(state = [], action) {
-            console.log("userLikes ",state);
-    switch (action.type) {
-        case 'INCREMENT_LIKES':
-
-            var index = action.index;
-            console.log("userLikes ",state);
-            return [
-                ...state.slice(0, index),
-                {...state[index], like: state[index].like + 1 },
-                ...state.slice(index + 1)
-            ];
-    console.log(action);
-    default:
-    return state;
-    }
-}
-export function BookmarkPosts(state = [], action) {
-        console.log("Bookmarks ",state);
-
-    console.log('inside reducer');
-    console.log(action);
-    switch (action.type) {
-        case 'DISPLAY_BOOK_MARKS':
-            return action.bookmark;
-
-        default:
-            return state;
-    }
-}
-export function setView(state=1,action){
-    switch(action.type){
-        case 'CHANGE_VIEW':
-            return action.view;
-        default:
-            return state;    
-    }
-}
-
-export function cardDetails(state=[],action){
+export function getData(state=[],action){
     
     switch(action.type){
-        case 'RESULT_DATA':
+        case 'FETCH_DATA':
         {
             return action.data;
         }
@@ -89,9 +15,48 @@ export function cardDetails(state=[],action){
     }
 }
 
-export function cardOpened(state={},action){
+export function pageload(state=true,action){
     switch(action.type){
-        case 'CURRENT_CARD':
+        case 'LOADING_STATUS':
+            return action.bool;
+        default:
+            return state;    
+    }
+}
+
+export function likedPosts(state=new Map(),action){
+    switch(action.type){
+        case 'LIKE':
+            state.set(action.id,action.count);
+            return state;
+        default:
+            return state;    
+    }
+}
+
+export function dislikedPosts(state=new Map(),action){
+    switch(action.type){
+        case 'DISLIKE':
+            state.set(action.id,action.count);
+            return state;
+        default:
+            return state;    
+    }    
+}
+
+export function bookmarkedPosts(state=new Map(),action){
+        switch(action.type){
+        case 'BOOKMARK':
+            state.set(action.id,action.status);
+            return state;
+        default:
+            return state;    
+    }    
+}
+
+export function openedCard(state={},action){
+    switch(action.type){
+        case 'ACTIVE_CARD':
             return action.card;
         default:
             return state;

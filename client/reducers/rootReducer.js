@@ -1,18 +1,13 @@
 import { combineReducers } from 'redux';
-import { userItems, userLikes, BookmarkPosts, setView, LikePosts, DislikePosts, cardDetails,cardOpened } from './items';
+import {getData,pageload,likedPosts,dislikedPosts,bookmarkedPosts, openedCard} from './items';
 
-var rootReducer = combineReducers({
-    // items,
-    // itemsHasErrored,
-    // itemsIsLoading,
-    userItems,
-    userLikes,
-    BookmarkPosts,
-    setView,
-    LikePosts,
-    DislikePosts,
-    cardDetails,
-    cardOpened
+var rootReducer= combineReducers({
+    getData,
+    pageload,
+    likedPosts,
+    dislikedPosts,
+    bookmarkedPosts,
+    openedCard
 });
 
 export default rootReducer;

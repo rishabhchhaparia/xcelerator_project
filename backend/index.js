@@ -21,7 +21,7 @@ var data;
 data = jsonfile.readFileSync(file);
 
 
-app.get('/cardDetails', function (req, res) {
+app.get('/getData', function (req, res) {
     res.json(data);
     res.end();
 });

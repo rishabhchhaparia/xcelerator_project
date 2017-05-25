@@ -1,1 +1,1 @@
-export var cardDetails = 'http://localhost:3000/cardDetails';
+export var getData = 'http://localhost:3000/getData';

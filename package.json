@@ -1,22 +1,9 @@
 {
-  "name": "xcelerator_prime",
+  "name": "xcelerator_project",
   "version": "1.0.0",
-  "description": ":) ",
-  "scripts": {
-    "build:webpack": "SET NODE_ENV=production && webpack --config webpack.config.prod.js",
-    "build": "npm run clean && npm run build:webpack",
-    "start": "node devServer.js",
-    "test": "jest",
-    "test:watch": "npm test -- --watch"
-  },
-  "repository": {
-    "type": "git",
-    "url": ""
-  },
-  "author": "",
-  "license": "",
-  "homepage": "",
-  "dependencies": {
+  "description": "npm install - To get node modules  \r npm start - to start the server  \r Go to localhost:7777",
+  "main": "devServer.js",
+"dependencies": {
     "axios": "^0.16.0",
     "babel-core": "^6.7.7",
     "babel-eslint": "^6.0.4",
@@ -87,5 +74,23 @@
     "file-loader": "^0.11.1",
     "image-webpack-loader": "^3.3.0",
     "react-addons-test-utils": "^15.0.2"
-  }
+  },
+  "scripts": {
+    "build:webpack": "SET NODE_ENV=production && webpack --config webpack.config.prod.js",
+    "build": "npm run clean && npm run build:webpack",
+    "start": "node devServer.js",
+    "test": "jest",
+    "test:watch": "npm test -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rishabhchhaparia/xcelerator_project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rishabhchhaparia/xcelerator_project/issues"
+  },
+  "homepage": "https://github.com/rishabhchhaparia/xcelerator_project#readme"
+    
 }

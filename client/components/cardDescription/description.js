@@ -19,7 +19,6 @@ class CardDescription extends React.Component {
             bookmarked: false | this.props.bookmarkedPosts.get(currCard.id),
         }
     }
-
     update(text) {
         if (text === "like") {
             this.props.likes(this.state.card.id, this.state.likes + 1);

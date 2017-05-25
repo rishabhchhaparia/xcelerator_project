@@ -19,7 +19,15 @@ class CardDetails extends React.Component {
             bookmarked: false | this.props.bookmarkedPosts.get(this.props.card.id),
         }
     }
-    update(text, event) {
+    details() {
+        this.props.currentCard(this.props.card);
+        cookie.save('currentCard', this.props.card);
+        hashHistory.push(`/details/${this.props.card.id}`);
+    }
+    truncate(str) {
+        return str.slice(0, 256) + "....";
+    }
+     update(text, event) {
         event.stopPropagation();
         if (text === "like") {
             this.props.likes(this.props.card.id, this.state.likes + 1);
@@ -33,14 +41,6 @@ class CardDetails extends React.Component {
             this.props.bookmarked(this.props.card.id, !this.state.bookmarked);
             this.setState({ bookmarked: !this.state.bookmarked });
         }
-    }
-    details() {
-        this.props.currentCard(this.props.card);
-        cookie.save('currentCard', this.props.card);
-        hashHistory.push(`/details/${this.props.card.id}`);
-    }
-    truncate(str) {
-        return str.slice(0, 256) + "....";
     }
     render() {
         var description;

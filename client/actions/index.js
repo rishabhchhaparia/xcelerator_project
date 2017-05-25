@@ -21,6 +21,14 @@ export function isLoading(bool){
     }
 }
 
+export function userFetchDataSuccess(users) {
+    //console.log(items);
+    return {
+        type: 'USERS_FETCH_DATA_SUCCESS',
+        users
+    };
+}
+
 export function deleteData(){
     return{
         type:'DELETE_DATA'
@@ -56,6 +64,22 @@ export function currentCard(card){
     return{
         type:'CURRENT_CARD',
         card
+    }
+}
+
+export function increment(users,index){
+    console.log("inside increment",users);
+    return{
+        type:'INCREMENT_LIKES',
+        users,
+        index
+    };
+}
+
+export function changeRoute(view){
+    return {
+        type:'ROUTE_CHANGED',
+        view
     }
 }
 

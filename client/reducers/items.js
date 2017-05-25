@@ -1,6 +1,23 @@
+export function userItems(state = [], action) {
+    console.log('insdide reducer');
+    console.log(state);
+    console.log(action);
+    switch (action.type) {
+        case 'USERS_FETCH_DATA_SUCCESS':
+            return action.users;
 
-
-
+        default:
+            return state;
+    }
+}
+export function routeView(state=1,action){
+    switch(action.type){
+        case 'ROUTE_CHANGED':
+            return action.view;
+        default:
+            return state;    
+    }
+}
 export function getData(state=[],action){
     
     switch(action.type){
@@ -21,6 +38,15 @@ export function pageload(state=true,action){
             return action.bool;
         default:
             return state;    
+    }
+}
+
+export function openedCard(state={},action){
+    switch(action.type){
+        case 'ACTIVE_CARD':
+            return action.card;
+        default:
+            return state;
     }
 }
 
@@ -54,11 +80,3 @@ export function bookmarkedPosts(state=new Map(),action){
     }    
 }
 
-export function openedCard(state={},action){
-    switch(action.type){
-        case 'ACTIVE_CARD':
-            return action.card;
-        default:
-            return state;
-    }
-}

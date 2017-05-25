@@ -60,17 +60,19 @@ class CardDetails extends React.Component {
         }
 
         const styles = {
-            bookmark: {
-                marginBottom: 16,
-                marginLeft: 15
+            h2: {
+                marginLeft: 20
+            },
+            img: {
+                height: 200,
             },
             card: {
-                overflow: 'auto',
+                marginTop: 20,
                 height: 580,
                 position: 'relative'
             },
             cardAction: {
-                marginTop: '15px',
+                marginBottom: '15px',
                 position: 'absolute',
                 bottom: '10px'
             },
@@ -83,22 +85,22 @@ class CardDetails extends React.Component {
         };
         return (
             <div className="col-xs-12">
-                <Card
+                <Card className="col-xs-12 col-md-8 col-md-offset-2"
                     style={styles.card}
                     onClick={this.details.bind(this)}>
-                    <h2>{this.state.card.title}</h2>
-                    <img src={this.props.card.thumbnailUrl} width="50px" height="200px" className="cardImg col-xs-11" />
+                    <h2 style={styles.h2} className="text-center">{this.state.card.title}</h2>
+                    <img src={this.props.card.thumbnailUrl} style={styles.img} className="cardImg col-xs-12 text-center img-responsive" />
                     {(flag) ?
                         <CardText expandable={false} className="col-xs-12">
                             {description}
-                            <a onClick={this.details.bind(this)}>Read More</a>
+                            <FlatButton primary={true} onClick={this.details.bind(this)}>Read More</FlatButton>
                         </CardText>
                         :
                         <CardText expandable={false} onClick={this.details.bind(this)} className="col-md-8 col-xs-12 col-sm-8 pull-right">
                             {description}
                         </CardText>
                     }
-                    <CardActions style={styles.cardAction} className="cardAction">
+                    <CardActions style={styles.cardAction} className="cardAction col-xs-12">
                         <span>
                             <RaisedButton label="Like" primary={true} onClick={this.update.bind(this, "like")} />
                             <Badge
@@ -116,7 +118,7 @@ class CardDetails extends React.Component {
                             </Badge>
                         </span>
                         <span>
-                            {(bm_flag) ? <FlatButton label="Bookmark" onClick={this.update.bind(this, "bookmark")}><span className="glyphicon glyphicon-bookmark pull-right" style={styles.marked}></span></FlatButton>
+                            {(bm_flag) ? <FlatButton label="Bookmarked" onClick={this.update.bind(this, "bookmark")}><span className="glyphicon glyphicon-bookmark pull-right" style={styles.marked}></span></FlatButton>
                             :
                             <FlatButton label="Bookmark" onClick={this.update.bind(this, "bookmark")}><span className="glyphicon glyphicon-bookmark pull-right" style={styles.unmarked}></span></FlatButton>
                             }

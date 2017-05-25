@@ -71,7 +71,7 @@ class CardDescription extends React.Component {
                         secondary={true}
                     >
                     </Badge>
-                   {(bm_flag) ? <FlatButton label="Bookmark" onClick={this.update.bind(this, "bookmark")}><span className="glyphicon glyphicon-bookmark pull-right" style={styles.marked}></span></FlatButton>
+                   {(bm_flag) ? <FlatButton label="Bookmarked" onClick={this.update.bind(this, "bookmark")}><span className="glyphicon glyphicon-bookmark pull-right" style={styles.marked}></span></FlatButton>
                             :
                             <FlatButton label="Bookmark" onClick={this.update.bind(this, "bookmark")}><span className="glyphicon glyphicon-bookmark pull-right" style={styles.unmarked}></span></FlatButton>
                             }

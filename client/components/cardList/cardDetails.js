@@ -16,7 +16,7 @@ class CardDetails extends React.Component {
             bookmarked: false | this.props.bookmarkedPosts.get(this.props.card.id),
         }
     }
-    change(text, event) {
+    update(text, event) {
         event.stopPropagation();
         if (text === "like") {
             this.props.likes(this.props.card.id, this.state.likes + 1);
@@ -92,7 +92,7 @@ class CardDetails extends React.Component {
                     }
                     <CardActions style={styles.cardAction} className="cardAction">
                         <span>
-                        <FlatButton label="Like" primary={true} onClick={this.change.bind(this, "like")} />
+                        <FlatButton label="Like" primary={true} onClick={this.update.bind(this, "like")} />
                         <Badge
                             badgeContent={this.state.likes}
                             primary={true}
@@ -100,7 +100,7 @@ class CardDetails extends React.Component {
                         </Badge>
                         </span>
                         <span>
-                        <FlatButton label="Dislike" secondary={true} onClick={this.change.bind(this, "dislike")} />
+                        <FlatButton label="Dislike" secondary={true} onClick={this.update.bind(this, "dislike")} />
                         <Badge
                             badgeContent={this.state.dislikes}
                             secondary={true}

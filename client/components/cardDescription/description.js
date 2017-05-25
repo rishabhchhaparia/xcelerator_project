@@ -17,7 +17,7 @@ class CardDescription extends React.Component {
         }
     }
 
-    change(text) {
+    update(text) {
         if (text === "like") {
             this.props.likes(this.state.card.id, this.state.likes + 1);
             this.setState({ likes: this.state.likes + 1 });
@@ -49,14 +49,14 @@ class CardDescription extends React.Component {
                         {this.state.card.body}
                     </p>
                     <CardActions className="col-md-offset-6 cardAction">
-                        <FlatButton label="Like" primary={true} onClick={this.change.bind(this, "like")} />
+                        <FlatButton label="Like" primary={true} onClick={this.update.bind(this, "like")} />
                         <Badge
                             badgeContent={this.state.likes}
                             primary={true}
                         >
                         </Badge>
 
-                        <FlatButton label="Dislike" secondary={true} onClick={this.change.bind(this, "dislike")} />
+                        <FlatButton label="Dislike" secondary={true} onClick={this.update.bind(this, "dislike")} />
                         <Badge
                             badgeContent={this.state.dislikes}
                             secondary={true}

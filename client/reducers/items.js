@@ -10,19 +10,6 @@ export function userItems(state = [], action) {
             return state;
     }
 }
-export function BookmarkPosts(state = [], action) {
-        console.log("Bookmarks ",state);
-
-    console.log('inside reducer');
-    console.log(action);
-    switch (action.type) {
-        case 'DISPLAY_BOOK_MARKS':
-            return action.bookmark;
-
-        default:
-            return state;
-    }
-}
 export function LikePosts(state = [], action) {
         console.log("likes ",state);
 
@@ -63,6 +50,19 @@ export  function userLikes(state = [], action) {
     console.log(action);
     default:
     return state;
+    }
+}
+export function BookmarkPosts(state = [], action) {
+        console.log("Bookmarks ",state);
+
+    console.log('inside reducer');
+    console.log(action);
+    switch (action.type) {
+        case 'DISPLAY_BOOK_MARKS':
+            return action.bookmark;
+
+        default:
+            return state;
     }
 }
 export function setView(state=1,action){

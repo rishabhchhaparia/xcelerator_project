@@ -16,17 +16,17 @@ class CardDetails extends React.Component {
             bookmarked: false | this.props.bookmarkedPosts.get(this.props.card.id),
         }
     }
-    change(message, event) {
+    change(text, event) {
         event.stopPropagation();
-        if (message === "like") {
+        if (text === "like") {
             this.props.likes(this.props.card.id, this.state.likes + 1);
             this.setState({ likes: this.state.likes + 1 });
         }
-        else if (message === 'dislike') {
+        else if (text === 'dislike') {
             this.props.dislikes(this.props.card.id, this.state.dislikes + 1);
             this.setState({ dislikes: this.state.dislikes + 1 });
         }
-        else if (message === 'bookmark') {
+        else if (text === 'bookmark') {
             this.props.bookmarked(this.props.card.id, !this.state.bookmarked);
             this.setState({ bookmarked: !this.state.bookmarked });
         }

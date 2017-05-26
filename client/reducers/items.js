@@ -1,5 +1,5 @@
 export function userItems(state = [], action) {
-    console.log('insdide reducer');
+    console.log('inside reducer');
     console.log(state);
     console.log(action);
     switch (action.type) {

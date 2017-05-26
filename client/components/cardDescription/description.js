@@ -46,17 +46,23 @@ class CardDescription extends React.Component {
             },
             unmarked: {
                 color: 'black'
-            }
+            },
+            cardActions: {
+                marginTop: 25
+            },
+            p: {
+                marginTop: 20
+            },
         };
 
         return (
-            <div className="container">
-                <h1>{this.state.card.title}</h1>
-                <img src={this.state.card.thumbnailUrl} width="150" height="250" className="col-xs-12 col-sm-4" alt="" />
-                <p className="cardDescription col-xs-12 col-sm-8">
+            <div className="container cardDesc">
+                <h1 className="text-center">{this.state.card.title}</h1>
+                <img src={this.state.card.thumbnailUrl} width="150" height="250" className="col-xs-12 col-sm-6 col-sm-offset-3" />
+                <p className="col-xs-12 col-sm-8 col-sm-offset-2" style={styles.p}>
                     {this.state.card.body}
                 </p>
-                <CardActions className="col-md-offset-6 cardAction">
+                <CardActions className="col-xs-12 col-sm-8 col-sm-offset-2" style={styles.cardActions}>
                     <RaisedButton label="Like" primary={true} onClick={this.update.bind(this, "like")} />
                     <Badge
                         badgeContent={this.state.likes}

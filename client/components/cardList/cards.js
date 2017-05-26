@@ -9,17 +9,9 @@ class Cards extends React.Component {
     }
     componentDidMount() {
         this.props.getCards(posts.getData);
+        console.log("getCards ",this.props.getCards(posts.getData));
     }
     render() {
-        const style = {
-            position: 'absolute',
-            left: "45%",
-            top: "40%",
-            search: {
-                width: '100%',
-                fontcolor: 'black'
-            }
-        }
         var data;
             data = this.props.getData.map((item, index) => {
                 return <CardDetails card={item} key={Math.random() * index} {...this.props}></CardDetails>

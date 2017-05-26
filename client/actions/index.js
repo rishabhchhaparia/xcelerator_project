@@ -22,7 +22,6 @@ export function isLoading(bool){
 }
 
 export function userFetchDataSuccess(users) {
-    //console.log(items);
     return {
         type: 'USERS_FETCH_DATA_SUCCESS',
         users

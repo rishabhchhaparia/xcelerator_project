@@ -89,7 +89,7 @@ class CardDetails extends React.Component {
                     style={styles.card}
                     onClick={this.details.bind(this)}>
                     <h2 style={styles.h2} className="text-center">{this.state.card.title}</h2>
-                    <img src={this.props.card.thumbnailUrl} style={styles.img} className="cardImg col-xs-12 text-center img-responsive" />
+                    <img src={this.props.card.thumbnailUrl} style={styles.img} className="cardImg col-xs-12 col-sm-8 col-sm-offset-2 img-responsive" />
                     {(flag) ?
                         <CardText expandable={false} className="col-xs-12">
                             {description}
@@ -100,7 +100,7 @@ class CardDetails extends React.Component {
                             {description}
                         </CardText>
                     }
-                    <CardActions style={styles.cardAction} className="cardAction col-xs-12">
+                    <CardActions style={styles.cardAction} className="col-xs-12">
                         <span>
                             <RaisedButton label="Like" primary={true} onClick={this.update.bind(this, "like")} />
                             <Badge

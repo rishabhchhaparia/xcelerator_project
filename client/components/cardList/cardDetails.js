@@ -19,10 +19,10 @@ class CardDetails extends React.Component {
             bookmarked: false | this.props.bookmarkedPosts.get(this.props.card.id),
         }
     }
-    details() {
+    description() {
         this.props.currentCard(this.props.card);
         cookie.save('currentCard', this.props.card);
-        hashHistory.push(`/details/${this.props.card.id}`);
+        hashHistory.push(`/id/${this.props.card.id}`);
     }
     truncate(str) {
         return str.slice(0, 256) + "....";
@@ -87,16 +87,16 @@ class CardDetails extends React.Component {
             <div className="col-xs-12">
                 <Card className="col-xs-12 col-md-8 col-md-offset-2"
                     style={styles.card}
-                    onClick={this.details.bind(this)}>
+                    onClick={this.description.bind(this)}>
                     <h2 style={styles.h2} className="text-center">{this.state.card.title}</h2>
                     <img src={this.props.card.thumbnailUrl} style={styles.img} className="cardImg col-xs-12 col-sm-8 col-sm-offset-2 img-responsive" />
                     {(flag) ?
                         <CardText expandable={false} className="col-xs-12">
                             {description}
-                            <FlatButton primary={true} onClick={this.details.bind(this)}>Read More</FlatButton>
+                            <FlatButton primary={true} onClick={this.description.bind(this)}>Read More</FlatButton>
                         </CardText>
                         :
-                        <CardText expandable={false} onClick={this.details.bind(this)} className="col-md-8 col-xs-12 col-sm-8 pull-right">
+                        <CardText expandable={false} onClick={this.description.bind(this)} className="col-md-8 col-xs-12 col-sm-8 pull-right">
                             {description}
                         </CardText>
                     }

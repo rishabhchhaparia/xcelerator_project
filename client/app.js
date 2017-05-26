@@ -17,7 +17,7 @@ render(
       <Router history={hashHistory}>
         <Route path={`/`} component={ App }>
           <IndexRoute component={ Cards } />
-          <Route path="details/:id" component={CardDescription}></Route>
+          <Route path="id/:id" component={CardDescription}></Route>
         </Route>
       </Router>
     </Provider>,
